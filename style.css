@@ -179,12 +179,25 @@ button {
     .hero-flex {
         gap: 20px;
     }
+
+    .nav-link {
+        margin-right: 30px;
+    }
+
+}
+
+.burger-btn {
+    display: none;
 }
 
 /* Small: 576px - 767px */
 @media (max-width: 767px) {
     .container {
         max-width: 540px;
+    }
+
+    .header-flex {
+        justify-content: space-between;
     }
 
     .hero-flex {
@@ -195,6 +208,82 @@ button {
         width: auto;
     }
 
+
+    .hero-img {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .footer-flex {
+        gap: 120px;
+        justify-content: center;
+    }
+
+    /*burger-menu:)*/
+    /* Кнопка-бургер видима на мобільному */
+
+    .burger-btn {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 4px;
+
+    }
+
+    .burger-line {
+        display: block;
+        width: 25px;
+        height: 2px;
+        background-color: #333;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+
+    }
+
+    /* Меню заховане */
+
+    .nav-list {
+        display: none;
+
+    }
+
+    /* Меню відкрите — клас додає JS */
+
+    .nav-list.is-open {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        text-align: right;
+        position: absolute;
+        top: 80px;
+        right: 0;
+        left: auto;
+        width: 100%;
+        padding: 16px 20px;
+        background: #fff;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+}
+
+/* Анімація кнопки коли меню відкрите */
+
+.nav-list.is-open .burger-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+
+}
+
+.nav-list.is-open .burger-line:nth-child(2) {
+    opacity: 0;
+
+}
+
+.nav-list.is-open .burger-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+
+}
 }
 
 /* Extra small: 0px (320px) - 575px */
@@ -218,17 +307,15 @@ button {
 
     .footer-list-one {
         display: flex;
-        flex-direction: row;
         justify-content: space-between;
         gap: 12px;
-        flex-wrap: nowrap;
-        width: 100%;
     }
 
     .footer-list-one li {
         white-space: nowrap;
     }
-    .footer-list-four{
+
+    .footer-list-four {
         display: flex;
         justify-content: center;
     }
